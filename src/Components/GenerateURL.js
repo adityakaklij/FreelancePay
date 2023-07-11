@@ -18,14 +18,13 @@ function GenerateURL() {
   useEffect(() => {
     Amplify.configure({
         Auth:{
-            // identityPoolId:'ap-south-1:78648954-8316-428e-94b4-05b7c94d9845',
-            identityPoolId: process.env.POOL_ID,
-            region:process.env.REGION,
+            identityPoolId: "ap-south-1:78648954-8316-428e-94b4-05b7c94d9845",
+            region: "ap-south-1",
         },
     Storage :{
         AWSS3: {
-            bucket: process.env.AWS_BUCKET,
-            region: process.env.REGION,
+            bucket: "freelancepay02",
+            region: "ap-south-1",
         },
     },
     })
@@ -33,7 +32,8 @@ function GenerateURL() {
 
 
   const generateURL = async()=> {
-    const url =  `freelance.com/${receivingAddress}/${blockchain}/${token}/${tokenAmount}/${ID}`;
+    // const url =  `freelance.com/#/Payments/#/${receivingAddress}/${blockchain}/${token}/${tokenAmount}/${ID}`;
+    const url =  `http://localhost:3000/#/Payments/#/${receivingAddress}/${blockchain}/${token}/${tokenAmount}/${ID}`;
     alert(url);
     console.log(url);
 

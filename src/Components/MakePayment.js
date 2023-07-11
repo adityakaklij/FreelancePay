@@ -15,48 +15,45 @@ function MakePayment() {
     const [urlData, seturlData] = useState();
     const [accountAdd, setAccountAdd] = useState();
     const [btnText, setbtnText] = useState("Make Payment");
-    const [provider1, setProvider] = useState();
-    const [signer1, setSigner] = useState()
+    const [status, setStatus] = useState(false);
 
 
 
     useEffect(() => {
 
-        let data = (window.location.pathname);
+        // let data = (window.location.pathname);
+        let data = (window.location.href);
         let m = data.split('/');
         seturlData(m)
+        console.log(m[10] );
     
         Amplify.configure({
             Auth:{
-                identityPoolId: process.env.POOL_ID,
-                region: process.env.REGION,
+                // identityPoolId: process.env.POOL_ID,
+                identityPoolId: "ap-south-1:78648954-8316-428e-94b4-05b7c94d9845",
+                region: "ap-south-1",
             },
         Storage :{
             AWSS3: {
-                bucket: process.env.AWS_BUCKET,
-                region:process.env.REGION,
+                // bucket: process.env.AWS_BUCKET,
+                bucket: "freelancepay02" ,
+                region: "ap-south-1",
             },
         },
         })
     },[0])
 
-
     function test() {
-        // console.log(blockchain)
-        console.log(window.location);
-        let data = (window.location.pathname);
-        let m = data.split('/');
-        console.log(m)
-        
-      }
-
+        downloadFile()
+    }
 
     const downloadFile = async () => {
 
         let url;
-        let key = "8192baa6"
+        let key = "errimg.png"
 
-        await Storage.get(urlData[5]).then(res => {
+        // await Storage.get(urlData[10]).then(res => {
+        await Storage.get(key).then(res => {
             url = res
             console.log(res);
         }).catch(err => {console.log(err)});
@@ -71,9 +68,10 @@ function MakePayment() {
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', 'filename.zip'); // Set the desired file name
+            link.setAttribute('download', 'Freelance.zip'); // Set the desired file name
             document.body.appendChild(link);
             link.click();
+            // setStatus(false);
         })
         .catch((error) => {
             console.error('Error downloading file:', error);
@@ -86,6 +84,12 @@ function MakePayment() {
         await connectWallet();
         setbtnText("Pay USDT")
         await makeTx()
+        try{
+
+            downloadFile()
+        }catch(error) {
+            alert("Error")
+        }
         
     }
 
@@ -109,15 +113,15 @@ function MakePayment() {
 
         const chainId = await window.ethereum.request({ method: 'eth_chainId' });
         console.log(chainId);
-        if (chainId !== urlData[2]){
-            switchNetwork(urlData[2])
+        if (chainId !== urlData[7]){
+            switchNetwork(urlData[7])
         }
     }
     const switchNetwork = async(networkID) => {
         try {
             await window.ethereum.request({
               method: 'wallet_switchEthereumChain',
-              params: [{ chainId: urlData[2] }],
+              params: [{ chainId: urlData[7] }],
             });
           } catch (switchError) {
             if (switchError.code === 4902) {
@@ -133,20 +137,21 @@ function MakePayment() {
         try {
 
             let m = ContractAddresses
-            let contractAddress = ('ox' + urlData[2]);
-            let ContractAdd = m[contractAddress][urlData[3]]
+            let contractAddress = ('ox' + urlData[7]);
+            let ContractAdd = m[contractAddress][urlData[8]]
 
             const contractInstance = new ethers.Contract(ContractAdd, ERC20_ABI, signer);
             let decimals = await contractInstance.decimals();
             decimals = decimals.toString();
 
-            const getApprove = await contractInstance.approve(accountAdd, (urlData[4] * (10**decimals)));
+            const getApprove = await contractInstance.approve(accountAdd, (urlData[9] * (10**decimals)));
             // await getApprove.wait(); 
             alert("Token approved successfully:)")
 
-            let tx = await contractInstance.transferFrom(accountAdd, urlData[1], (urlData[4]* (10**decimals) ), {gasLimit: 100000});
+            let tx = await contractInstance.transferFrom(accountAdd, urlData[6], (urlData[9]* (10**decimals) ), {gasLimit: 100000});
             await tx.wait();
             alert("Payment done successfully:)")
+            setStatus(true);
             
         } catch (error) {
             alert(error)
@@ -162,7 +167,7 @@ function MakePayment() {
         
         <div>MakePayment</div>
     
-        <button onClick={makeTx }>makeTx</button>
+        <button onClick={test }>test</button>
 
         <br />
         <br />
