@@ -1,10 +1,14 @@
-
-import './App.css';
+import { useState } from 'react';
+import GenerateURL from './Components/GenerateURL';
+import AWSStorage from './Components/AWSStorage';
 
 function App() {
+
+  
   return (
     <>
-      <h1>Freelnace pay</h1>
+      {/* <GenerateURL/> */}
+      <AWSStorage/>
     </>
   );
 }
