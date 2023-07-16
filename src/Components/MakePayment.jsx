@@ -53,10 +53,6 @@ function MakePayment() {
         })
     },[0])
 
-    function test() {
-        downloadFile()
-    }
-
     const downloadFile = async () => {
 
         let url;
@@ -96,7 +92,13 @@ function MakePayment() {
         await makeTx()
         try{
 
-            downloadFile()
+            if(status){
+                downloadFile()
+            }
+
+            else {
+                alert("Something went wrong \n Please try again")
+            }
         }catch(error) {
             alert("Error")
         }
@@ -114,13 +116,6 @@ function MakePayment() {
         }).catch( (e) => {
           alert(e)
         })
-
-        // const pro = await new ethers.providers.Web3Provider(window.ethereum);
-        // setProvider(pro);
-        // const sig = await pro.getSigner();
-        // setSigner(sig)
-
-
         const chainId = await window.ethereum.request({ method: 'eth_chainId' });
         console.log(chainId);
         if (chainId !== urlData[7]){
@@ -202,7 +197,7 @@ function MakePayment() {
                 <img src={payicon} alt="" />
             </div>
             <div className="btns">
-        <button onClick={test }>test</button>
+        {/* <button onClick={test }>test</button> */}
         <button onClick={makePayment}>{btnText}</button>
             </div>
             </div>
