@@ -5,6 +5,16 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { ContractAddresses, ERC20_ABI } from '../Constants/Constant';
 import {ethers} from "ethers";
+import Navbar from '../Components/Navbar.jsx'
+import './CSS/MakePayment.css'
+import payicon from '../assets/MetaMask.svg'
+import wallet from '../assets/wallet.png';
+import bitcoin from '../assets/bitcoin.svg'
+import ethereum from '../assets/ethereum.svg'
+import metamask from '../assets/MetaMask.svg'
+import polygon from '../assets/polygon.svg'
+import bnb from '../assets/bnb.svg'
+import usdc from '../assets/usdc.svg'
 
 
 
@@ -164,16 +174,39 @@ function MakePayment() {
     return (
 
         <>
-        
-        <div>MakePayment</div>
-    
+        <Navbar></Navbar>
+        <div className="mainBackground">
+        <div className="usdc">
+          <img src={usdc} alt="" />
+        </div>
+        <div className="bitcoin">
+          <img src={bitcoin} alt="" />
+        </div>
+        <div className="metamask">
+          <img src={metamask} alt="" />
+        </div>
+        <div className="polygon">
+          <img src={polygon} alt="" />
+        </div>
+        <div className="bnb">
+          <img src={bnb}alt="" />
+        </div>
+        <div className="ethereum">
+          <img src={ethereum} alt="" />
+        </div>
+            <div className="makePayment">
+            <div className="title">
+                <span>Payment</span>
+            </div>
+            <div className="paycon">
+                <img src={payicon} alt="" />
+            </div>
+            <div className="btns">
         <button onClick={test }>test</button>
-
-        <br />
-        <br />
-        <br />
-
         <button onClick={makePayment}>{btnText}</button>
+            </div>
+            </div>
+        </div>
         
         </>
   )

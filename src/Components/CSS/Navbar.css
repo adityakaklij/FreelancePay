@@ -1,0 +1,54 @@
+ 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&family=VT323&display=swap');
+ 
+ :root{
+    
+        --text: #090817;
+    --background: #e2e1f4;
+    --primary: #2e2975;
+    --secondary: #c2bfe8;
+    --accent: #4039a2;
+
+        /* --text: #050505;
+    --background: #fafafa;
+    --primary: #1f58a8;
+    --secondary: #d4e3f7;
+    --accent: #2671d9; */
+
+/* --text: #ebf7ff;
+--background: #001928;
+--primary: #0296f2;
+--secondary: #012c47;
+--accent: #17a5fd; */
+    
+/* 
+--text: #050505;
+--background: #fafafa;
+--primary: #1f58a8;
+--secondary: #d4e3f7;
+--accent: #2671d9; */
+ }
+.navbar{
+    height: 5rem;
+    width: 100%;
+    background-color: var(--primary);
+    color:  white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    /* letter-spacing: .1rem; */
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Inter';
+    font-weight: 900;
+}
+
+.navbar span:nth-child(2){
+    color: var(--accent);
+    margin-left: .4rem;
+    font-family: 'Roboto';
+     padding: .5rem;
+     line-height: 2rem;
+     border-radius: 10px;
+    background-color: #ffff;
+}

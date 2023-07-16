@@ -1,0 +1,63 @@
+.makePayment{
+    align-items: center;
+  display: flex;
+  
+  padding: 3rem;
+  padding-top: 1rem;
+  border-radius: 10px;
+  height: 70vh;
+  width: fit-content;
+  background-color: var(--secondary);
+  border: 1px solid var(--secondary);
+  flex-direction: column;
+}
+
+.makePayment button{
+    width: 32rem;
+    height: 4rem;
+    border: 1px solid var(--secondary);
+    border-radius: 10px;
+    background-color: var(--accent);
+    color: #ffff;
+    transition: all 0.2s;
+    font-size: 1.1rem;
+    cursor: pointer;
+    
+}
+
+.makePayment button:hover {
+    background-color: var(--primary);
+    transform: scale(1.01);
+  }
+
+.title{
+    font-size: 2rem;
+    font-family: 'Roboto';
+    font-weight: 800;
+    color: var(--accent);
+    /* background-color:white ; */
+    padding: 1rem;
+    border-radius: 10px;
+    width: fit-content;
+     
+}  
+
+.btns{
+    display: flex;
+    flex-direction: column;
+}
+
+.paycon{
+    width: 5rem;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+} 
+
+.paycon img{
+    width: 1rem;
+    transform: scale(15);
+    border: 1px solid  rgb(255, 145, 0);
+    border-radius: 5px;
+}

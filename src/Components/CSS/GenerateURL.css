@@ -1,0 +1,169 @@
+.mainBackground {
+  background-color: var(--background);
+  height: 89vh;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.generateURL {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+  border-radius: 10px;
+  height: 70vh;
+  width: fit-content;
+  background-color: var(--secondary);
+  border: 1px solid var(--secondary);
+  flex-direction: column;
+}
+
+.generateURL input {
+  font-family: "Roboto";
+  font-size: 1.1rem;
+  width: 30rem;
+  /* width: 100%; */
+  height: 2rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  /* background-color: var(--secondary); */
+  border-radius: 10px;
+  border: 1px solid grey;
+}
+
+.generateURL input:focus {
+  border: 1px solid var(--accent);
+}
+
+.selections {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 2rem;
+}
+.selections select {
+  width: 15rem;
+  height: 3rem;
+  margin-bottom: 2rem;
+  color: #ffff;
+  font-size: 1.1rem;
+  padding-left: 1rem;
+  border-radius: 5px;
+  background-color: var(--accent);
+}
+
+.generateURL input[type="file"] {
+  background-color: var(--accent);
+  color: #ffff;
+}
+
+.generateURL button {
+  width: 32rem;
+  height: 4rem;
+  border: 1px solid var(--secondary);
+  border-radius: 10px;
+  background-color: var(--accent);
+  color: #ffff;
+  transition: all 0.2s;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.generateURL button:hover {
+  background-color: var(--primary);
+  transform: scale(1.01);
+}
+
+.icon {
+  align-self: flex-start;
+  width: 32rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+ 
+.icon span{
+    color: var(--accent);
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: .2rem;
+    margin-left: .2rem;
+}
+
+.bitcoin{
+    position: absolute;
+    transform: rotate(-30deg) scale(3);
+    right: 10%;
+    top: 50%;
+}
+
+.ethereum{
+    position: absolute;
+    transform: rotate(30deg) scale(3.1);
+    left: 10%;
+    top: 54%;
+}
+
+.usdc{
+    position: absolute;
+    width: 2rem;
+    transform: rotate(10deg) scale(2.6);
+    top: 76%;
+    right: 23%;
+}
+
+.metamask{
+    position: absolute;
+    width: 2rem;
+    transform: rotate(10deg) scale(2.6);
+    bottom: 72%;
+    left: 23%;
+}
+
+.polygon{
+    position: absolute;
+    width: 2rem;
+    transform: rotate(10deg) scale(2.6);
+    top: 72%;
+    left: 23%;
+}
+
+.bnb{
+    position: absolute;
+    width: 2rem;
+    transform: rotate(10deg) scale(2.8);
+    bottom: 62%;
+    right: 25%;
+}
+
+.heading{
+  font-family: 'Inter';
+  font-size: 2.5rem;
+  font-weight:bolder;
+  color: var(--accent);
+}
+
+.url{
+  overflow: hidden;
+  width: 30rem;
+  border-radius: 10px;
+  margin-top: 5rem;
+  font-family: 'Inter';
+  font-size: 1.5rem;
+  margin-bottom: 5rem;
+  padding: 1rem;
+  font-weight: 500;
+  color: var(--accent);
+  background-color: var(--background);
+  word-wrap: break-word;
+}
+
+.urlContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
