@@ -90,7 +90,9 @@ function MakePayment() {
         await connectWallet();
         setbtnText("Pay USDT")
         await makeTx()
-        try{
+        // await setStatus(true);
+        console.log("status ",status)
+        // try{
 
             if(status){
                 downloadFile()
@@ -99,9 +101,9 @@ function MakePayment() {
             else {
                 alert("Something went wrong \n Please try again")
             }
-        }catch(error) {
-            alert("Error")
-        }
+        // }catch(error) {
+        //     alert("Error")
+        // }
         
     }
 
@@ -156,11 +158,13 @@ function MakePayment() {
             let tx = await contractInstance.transferFrom(accountAdd, urlData[6], (urlData[9]* (10**decimals) ), {gasLimit: 100000});
             await tx.wait();
             alert("Payment done successfully:)")
-            setStatus(true);
+            
             
         } catch (error) {
             alert(error)
         }
+
+        await setStatus(true);
         
     }
 

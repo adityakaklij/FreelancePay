@@ -45,7 +45,8 @@ function GenerateURL() {
   const generateURL = async () => {
     // const url =  `freelance.com/#/Payments/#/${receivingAddress}/${blockchain}/${token}/${tokenAmount}/${ID}`;
     // const url = `http://localhost:3000/#/Payments/#/${receivingAddress}/${blockchain}/${token}/${tokenAmount}/${ID}`;
-    const url = `https://freelancepay-7523wblyj-adityakaklij.vercel.app/#/Payments/#/${receivingAddress}/${blockchain}/${token}/${tokenAmount}/${ID}`;
+    // const url = `https://freelancepay-7523wblyj-adityakaklij.vercel.app/#/Payments/#/${receivingAddress}/${blockchain}/${token}/${tokenAmount}/${ID}`;
+    const url = `https://freelancepay.vercel.app/#/Payments/#/${receivingAddress}/${blockchain}/${token}/${tokenAmount}/${ID}`;
      setFinalURL(url);
     console.log(url);
   };
